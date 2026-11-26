@@ -1,15 +1,17 @@
 -- Requete 1: Afficher la liste des noms des focaccias par ordre alphabétique croissant
--- Résultat attendu : 
--- Résultat obtenu :
--- Ecarts : 
+-- Résultat attendu : afficher les noms des foccacias dans l'ordre alphabetique
+-- Résultat obtenu : liste des foccacia dans l'ordre alphabetique
+-- Ecarts : NA
 -- Code SQL: 
+SELECT nom FROM foccacia ORDER BY nom ASC;
 -- -------------------------------------------------------------
 
--- Requete 2: 
--- Résultat attendu : 
+-- Requete 2: Afficher le nombre total d'ingrédients
+-- Résultat attendu : compter le nombre d'ingrédients
 -- Résultat obtenu :
 -- Ecarts : 
 -- Code SQL: 
+SELECT COUNT(*) as nombre_ingredients FROM ingredient; 
 -- -------------------------------------------------------------
 
 -- Requete 3: 

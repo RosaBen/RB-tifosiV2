@@ -8,5 +8,28 @@
 
 ## Réponses des requetes
 
-1. Afficher la liste des noms des focaccias par ordre alphabétique croissant   
-![Afficher la liste des noms des focaccias par ordre alphabétique croissant]()
+1. Afficher la liste des noms des focaccias par ordre alphabétique croissant 
+```  
++-----------------+
+| nom             |
++-----------------+
+| Américaine      |
+| Emmentalaccia   |
+| Gorgonzollaccia |
+| Hawaienne       |
+| Mozaccia        |
+| Paysanne        |
+| Raclaccia       |
+| Tradizione      |
++-----------------+
+```
+2. Afficher le nombre total d'ingrédients
+```
++--------------------+
+| nombre_ingredients |
++--------------------+
+|                 25 |
++--------------------+
+```
+
+3. 
