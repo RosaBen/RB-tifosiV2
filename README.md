@@ -21,7 +21,8 @@ Tableau des foccacias avec leurs ingrédients et leur nombre d'ingredients dans 
 1. Executer le fichier structure ```sudo mysql < DB/structure.sql```
 2. Executer le fichier data_insertion ```sudo mysql < DB/data_insertion.sql```
 3. Executer chaque code sql sur terminal :
-détails de chaque requete sur le fichier "DB/queries.sql"
+    
+    Détails de chaque requete sur le fichier "DB/queries.sql"
 
     a. Requete 1: Afficher la liste des noms des focaccias par ordre alphabétique croissant
     ```
