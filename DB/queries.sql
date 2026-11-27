@@ -63,18 +63,20 @@ SELECT foccacia.nom AS foccacia, COUNT(ingredient.nom) as nombre_ingredients fro
 SELECT foccacia.nom as foccacia FROM foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE ingredient.nom = "ail" ;
 -- -------------------------------------------------------------
 
--- Requete 9: 
--- Résultat attendu : 
--- Résultat obtenu :
--- Ecarts : 
+-- Requete 9: Afficher la liste des ingrédients inutilisés
+-- Résultat attendu : afficher les ingredients non utilisées sur aucune des foccacia
+-- Résultat obtenu : salami et tomate cerise
+-- Ecarts : NA
 -- Code SQL: 
+SELECT ingredient.nom as ingredient FROM ingredient WHERE NOT EXISTS(SELECT 1 FROM foccacia_ingredients WHERE foccacia_ingredients.id_ingredient = ingredient.id_ingredient);
 -- -------------------------------------------------------------
 
--- Requete 10: 
--- Résultat attendu : 
--- Résultat obtenu :
--- Ecarts : 
+-- Requete 10: Afficher la liste des focaccia qui n'ont pas de champignons
+-- Résultat attendu : Afficher la liste des focaccia qui n'ont pas de champignons
+-- Résultat obtenu : hawaienne et americaine
+-- Ecarts : NA
 -- Code SQL: 
+SELECT foccacia.nom as foccacia FROM foccacia WHERE NOT EXISTS(SELECT 1 FROM foccacia_ingredients INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE foccacia.id_foccacia = foccacia_ingredients.id_foccacia AND ingredient.nom = "champignon") GROUP BY foccacia;
 -- -------------------------------------------------------------
 
 

@@ -41,19 +41,15 @@
     ```
     SELECT foccacia.nom as foccacia FROM foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE ingredient.nom = "ail" ;
     ```
-    i. Requete 9:
-        ```
+    i. Requete 9: Afficher la liste des ingrédients inutilisés
     ```
-        ```
+    SELECT ingredient.nom as ingredient FROM ingredient WHERE NOT EXISTS(SELECT 1 FROM foccacia_ingredients WHERE foccacia_ingredients.id_ingredient = ingredient.id_ingredient);
     ```
-        ```
+    j. Requete 10: Afficher la liste des focaccia qui n'ont pas de champignons
     ```
-        ```
+    SELECT foccacia.nom as foccacia FROM foccacia WHERE NOT EXISTS(SELECT 1 FROM foccacia_ingredients INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE foccacia.id_foccacia = foccacia_ingredients.id_foccacia AND ingredient.nom = "champignon") GROUP BY foccacia;
     ```
-        ```
-    ```
-        ```
-    ```
+
 
 
 ## Réponses des requetes
@@ -167,188 +163,31 @@
 | Paysanne        |
 +-----------------+
 ```
-9. 
+9. Afficher la liste des ingrédients inutilisés
 
 ```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
++---------------+
+| ingredient    |
++---------------+
+| salami        |
+| tomate cerise |
++---------------+
 ```
+10. Afficher la liste des focaccia qui n'ont pas de champignons
 ```
-
-```
-
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-
-```
-
-```
-```
-
++-------------+
+| foccacia    |
++-------------+
+| Hawaienne   |
+| Américaine  |
++-------------+
 ```
-```
 
-```
-```
 
-```
-```
 
-```
-```
 
-```
 
-```
 
-```
-```
 
-```
-```
 
-```
-```
 
-```
