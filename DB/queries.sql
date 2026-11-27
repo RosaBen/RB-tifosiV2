@@ -47,18 +47,20 @@ SELECT foccacia.nom as foccacia, ingredient.nom AS ingredient from foccacia INNE
 SELECT foccacia.nom AS foccacia, COUNT(ingredient.nom) as nombre_ingredients from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient GROUP BY foccacia.nom;
 -- -------------------------------------------------------------
 
--- Requete 7: 
--- Résultat attendu : 
--- Résultat obtenu :
--- Ecarts : 
+-- Requete 7: Afficher le nom de la focaccia qui a le plus d'ingrédients
+-- Résultat attendu : afficher la foccacia avec le plus d'ingrédients
+-- Résultat obtenu : Paysanne avec 12 ingredients
+-- Ecarts : NA
 -- Code SQL: 
+SELECT foccacia.nom AS foccacia, COUNT(ingredient.nom) as nombre_ingredients from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient GROUP BY foccacia.nom ORDER BY nombre_ingredients DESC LIMIT 1;
 -- -------------------------------------------------------------
 
--- Requete 8: 
--- Résultat attendu : 
--- Résultat obtenu :
--- Ecarts : 
+-- Requete 8: Afficher la liste des focaccia qui contiennent de l'ail
+-- Résultat attendu : lister seulement les foccacia avec ail
+-- Résultat obtenu : mozaccia, gorgonzollaccia, raclaccia, paysanne
+-- Ecarts : NA
 -- Code SQL: 
+SELECT foccacia.nom as foccacia FROM foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE ingredient.nom = "ail" ;
 -- -------------------------------------------------------------
 
 -- Requete 9: 

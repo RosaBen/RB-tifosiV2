@@ -29,15 +29,19 @@
     ```
     SELECT foccacia.nom as foccacia, ingredient.nom AS ingredient from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE foccacia.nom = "Raclaccia" ;
     ```
-    f. Requet 6: Afficher le nom et le nombre d'ingrédients pour chaque foccacia
+    f. Requete 6: Afficher le nom et le nombre d'ingrédients pour chaque foccacia
     ```
     SELECT foccacia.nom AS foccacia, COUNT(ingredient.nom) as nombre_ingredients from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient GROUP BY foccacia.nom;
     ```
-    g. 
-        ```
+    g. Requete 7: Afficher le nom de la focaccia qui a le plus d'ingrédients
     ```
-        ```
+    SELECT foccacia.nom AS foccacia, COUNT(ingredient.nom) as nombre_ingredients from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient GROUP BY foccacia.nom ORDER BY nombre_ingredients DESC LIMIT 1;
     ```
+    h. Requete 8: Afficher la liste des focaccia qui contiennent de l'ail
+    ```
+    SELECT foccacia.nom as foccacia FROM foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE ingredient.nom = "ail" ;
+    ```
+    i. Requete 9:
         ```
     ```
         ```
@@ -144,12 +148,26 @@
 | Paysanne        |                 12 |
 +-----------------+--------------------+
 ```
+7. Afficher le nom de la focaccia qui a le plus d'ingrédients
 ```
-
++----------+--------------------+
+| foccacia | nombre_ingredients |
++----------+--------------------+
+| Paysanne |                 12 |
++----------+--------------------+
 ```
+8. Afficher la liste des focaccia qui contiennent de l'ail
 ```
-
++-----------------+
+| foccacia        |
++-----------------+
+| Mozaccia        |
+| Gorgonzollaccia |
+| Raclaccia       |
+| Paysanne        |
++-----------------+
 ```
+9. 
 
 ```
 
