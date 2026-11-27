@@ -21,13 +21,19 @@
     ```
     SELECT boisson.nom as drink, marque.nom AS brand FROM boisson INNER JOIN marque ON boisson.id_marque = marque.id_marque ORDER BY boisson.nom ASC;
     ```
-    e. 
+    e. Requete 5: Afficher la liste des ingrédients pour une Raclaccia
     ```
+    SELECT foccacia.nom as foccacia, GROUP_CONCAT(ingredient.nom SEPARATOR ", ") AS ingredients from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE foccacia.nom = "Raclaccia" ;
     ```
-        ```
+    OU
     ```
-        ```
+    SELECT foccacia.nom as foccacia, ingredient.nom AS ingredient from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE foccacia.nom = "Raclaccia" ;
     ```
+    f. Requet 6: Afficher le nom et le nombre d'ingrédients pour chaque foccacia
+    ```
+    SELECT foccacia.nom AS foccacia, COUNT(ingredient.nom) as nombre_ingredients from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient GROUP BY foccacia.nom;
+    ```
+    g. 
         ```
     ```
         ```
@@ -101,15 +107,42 @@
 | pepsi max zéro            | pepsico     |
 +---------------------------+-------------+
 ```
-5. 
+5. Afficher la liste des ingrédients pour une Raclaccia
 ```
-
++-----------+-------------------------------------------------------------------+
+| foccacia  | ingredients                                                       |
++-----------+-------------------------------------------------------------------+
+| Raclaccia | ail, base tomate, champignon, cresson, parmesan, poivre, raclette |
++-----------+-------------------------------------------------------------------+
 ```
+2ème solution:
 ```
-
++-----------+-------------+
+| foccacia  | ingredient  |
++-----------+-------------+
+| Raclaccia | ail         |
+| Raclaccia | base tomate |
+| Raclaccia | champignon  |
+| Raclaccia | cresson     |
+| Raclaccia | parmesan    |
+| Raclaccia | poivre      |
+| Raclaccia | raclette    |
++-----------+-------------+
 ```
+6. Afficher le nom et le nombre d'ingrédients pour chaque foccacia
 ```
-
++-----------------+--------------------+
+| foccacia        | nombre_ingredients |
++-----------------+--------------------+
+| Mozaccia        |                 10 |
+| Gorgonzollaccia |                  8 |
+| Raclaccia       |                  7 |
+| Emmentalaccia   |                  7 |
+| Tradizione      |                  9 |
+| Hawaienne       |                  9 |
+| Américaine      |                  8 |
+| Paysanne        |                 12 |
++-----------------+--------------------+
 ```
 ```
 

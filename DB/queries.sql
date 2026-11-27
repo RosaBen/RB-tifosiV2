@@ -30,18 +30,21 @@ SELECT ROUND(AVG(prix),2) as prix_moyen from foccacia;
 SELECT boisson.nom as drink, marque.nom AS brand FROM boisson INNER JOIN marque ON boisson.id_marque = marque.id_marque ORDER BY boisson.nom ASC;
 -- -------------------------------------------------------------
 
--- Requete 5: 
--- Résultat attendu : 
--- Résultat obtenu :
--- Ecarts : 
+-- Requete 5: Afficher la liste des ingrédients pour une Raclaccia
+-- Résultat attendu : récupérer la liste des ingrédients de la Raclaccia
+-- Résultat obtenu : ail, base tomate, champignon, cresson, parmesan, poivre, raclette
+-- Ecarts : NA
 -- Code SQL: 
+SELECT foccacia.nom as foccacia, GROUP_CONCAT(ingredient.nom SEPARATOR ", ") AS ingredients from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE foccacia.nom = "Raclaccia" ;
+SELECT foccacia.nom as foccacia, ingredient.nom AS ingredient from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE foccacia.nom = "Raclaccia" ;
 -- -------------------------------------------------------------
 
--- Requete 6: 
--- Résultat attendu : 
--- Résultat obtenu :
--- Ecarts : 
+-- Requete 6: Afficher le nom et le nombre d'ingrédients pour chaque foccacia
+-- Résultat attendu : sur chaque foccacia , trouver le nombre d'ingrédients et afficher les 2 colonnes
+-- Résultat obtenu : liste des foccacia  avec leur nombre ingrédients 
+-- Ecarts : NA
 -- Code SQL: 
+SELECT foccacia.nom AS foccacia, COUNT(ingredient.nom) as nombre_ingredients from foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient GROUP BY foccacia.nom;
 -- -------------------------------------------------------------
 
 -- Requete 7: 
