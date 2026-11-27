@@ -79,4 +79,6 @@ SELECT ingredient.nom as ingredient FROM ingredient WHERE NOT EXISTS(SELECT 1 FR
 SELECT foccacia.nom as foccacia FROM foccacia WHERE NOT EXISTS(SELECT 1 FROM foccacia_ingredients INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient WHERE foccacia.id_foccacia = foccacia_ingredients.id_foccacia AND ingredient.nom = "champignon") GROUP BY foccacia;
 -- -------------------------------------------------------------
 
+SELECT foccacia.nom AS foccacia,  GROUP_CONCAT(ingredient.nom SEPARATOR ", ") AS ingredients, COUNT(ingredient.nom) as nombre_ingredients FROM foccacia INNER JOIN foccacia_ingredients ON foccacia.id_foccacia = foccacia_ingredients.id_foccacia INNER JOIN ingredient ON ingredient.id_ingredient = foccacia_ingredients.id_ingredient GROUP BY foccacia ORDER BY nombre_ingredients DESC;
+
 

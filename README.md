@@ -1,5 +1,21 @@
 # RB-tifosiV2
 
+Tableau des foccacias avec leurs ingrédients et leur nombre d'ingredients dans ordre descendant
+```
++-----------------+------------------------------------------------------------------------------------------------------------------------------+--------------------+
+| foccacia        | ingredients                                                                                                                  | nombre_ingredients |
++-----------------+------------------------------------------------------------------------------------------------------------------------------+--------------------+
+| Paysanne        | ail, artichaut, base crème, champignon, chèvre, cresson, jambon fumé, œuf, olive noire, parmesan, poivre, pomme de terre     |                 12 |
+| Mozaccia        | ail, artichaut, base tomate, champignon, cresson, jambon fumé, olive noire, parmesan, poivre, mozarella                      |                 10 |
+| Hawaienne       | ananas, bacon, base tomate, cresson, olive noire, parmesan, piment, poivre, mozarella                                        |                  9 |
+| Tradizione      | base tomate, champignon, cresson, jambon cuit, olive noire, olive verte, parmesan, poivre, mozarella                         |                  9 |
+| Américaine      | bacon, base tomate, cresson, olive noire, parmesan, poivre, pomme de terre, mozarella                                        |                  8 |
+| Gorgonzollaccia | ail, base tomate, champignon, cresson, gorgonzola, olive noire, parmesan, poivre                                             |                  8 |
+| Emmentalaccia   | base crème, champignon, cresson, emmental, oignon, parmesan, poivre                                                          |                  7 |
+| Raclaccia       | ail, base tomate, champignon, cresson, parmesan, poivre, raclette                                                            |                  7 |
++-----------------+------------------------------------------------------------------------------------------------------------------------------+--------------------+
+```
+
 ## Instructions pour utiliser repo
 
 1. Executer le fichier structure ```sudo mysql < DB/structure.sql```
